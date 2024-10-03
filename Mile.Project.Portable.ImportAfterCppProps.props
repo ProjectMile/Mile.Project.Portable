@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+  PROJECT:   Mouri Internal Library Essentials
+  FILE:      Mile.Project.Portable.ImportAfterCppProps.props
+  PURPOSE:   MSBuild props file for Mile.Project.Portable Project
+
+  LICENSE:   The MIT License
+
+  MAINTAINER: MouriNaruto (Kenji.Mouri@outlook.com)
+-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ForceImportAfterCppProps>$(MileProjectPortableBackupedForceImportAfterCppProps)</ForceImportAfterCppProps>
+  </PropertyGroup>
+</Project>
