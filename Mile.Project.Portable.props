@@ -11,6 +11,6 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(MileProjectPortableDisableAllFeatures)' != 'true'">
     <MileProjectPortableBackupedForceImportAfterCppProps>$(ForceImportAfterCppProps)</MileProjectPortableBackupedForceImportAfterCppProps>
-    <ForceImportAfterCppProps>$(MSBuildThisFileDirectory)Mile.Project.Portable.ImportAfterCppProps.props</ForceImportAfterCppProps>
+    <ForceImportAfterCppProps>$(MSBuildThisFileDirectory)Mile.Project.Portable.AfterCpp.props</ForceImportAfterCppProps>
   </PropertyGroup>
 </Project>
