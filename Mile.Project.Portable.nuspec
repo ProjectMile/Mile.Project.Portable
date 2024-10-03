@@ -25,6 +25,8 @@
     <file src="Mile.Project.Portable.props" target="build\native" />
     <file src="Mile.Project.Portable.targets" target="build\native" />
 
+    <file src="Mile.Project.Portable.AfterCpp.props" target="build\native" />
+
     <file src="ReadMe.md" target="." />
     <file src="License.md" target="." />
     <file src="ReleaseNotes.md" target="." />
