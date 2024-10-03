@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+  PROJECT:   Mouri Internal Library Essentials
+  FILE:      Mile.Project.Portable.nuspec
+  PURPOSE:   NuGet package definition for Mile.Project.Portable Project
+
+  LICENSE:   The MIT License
+
+  MAINTAINER: MouriNaruto (Kenji.Mouri@outlook.com)
+-->
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Mile.Project.Portable</id>
+    <version>$version$</version>
+    <description>About Portable parts of configurations for simplifying Visual Studio (MSBuild) projects configurations</description>
+    <authors>Kenji Mouri</authors>
+    <projectUrl>https://github.com/ProjectMile/Mile.Project.Portable</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="file">License.md</license>
+    <readme>ReadMe.md</readme>
+    <repository type="git" url="https://github.com/ProjectMile/Mile.Project.Portable.git" />
+  </metadata>
+  <files>
+
+    <file src="Mile.Project.Portable.props" target="build\native" />
+    <file src="Mile.Project.Portable.targets" target="build\native" />
+
+    <file src="ReadMe.md" target="." />
+    <file src="License.md" target="." />
+    <file src="ReleaseNotes.md" target="." />
+
+  </files>
+</package>
