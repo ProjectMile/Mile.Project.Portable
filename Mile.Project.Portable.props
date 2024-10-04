@@ -12,7 +12,7 @@
   <PropertyGroup>
     <IncludePath>$(MSBuildThisFileDirectory);$(IncludePath)</IncludePath>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(MileProjectPortableDisableAllFeatures)' != 'true'">
+  <PropertyGroup Condition="'$(MileProjectDisableAllFeatures)' != 'true'">
     <MileProjectPortableBackupedForceImportAfterCppProps>$(ForceImportAfterCppProps)</MileProjectPortableBackupedForceImportAfterCppProps>
     <ForceImportAfterCppProps>$(MSBuildThisFileDirectory)Mile.Project.Portable.AfterCpp.props</ForceImportAfterCppProps>
   </PropertyGroup>

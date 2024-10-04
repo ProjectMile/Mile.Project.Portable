@@ -11,7 +11,7 @@ If you want to disable all features from Mile.Project.Portable, please set the
 following option.
 
 ```
-<MileProjectPortableDisableAllFeatures>true</MileProjectPortableDisableAllFeatures>
+<MileProjectDisableAllFeatures>true</MileProjectDisableAllFeatures>
 ```
 
 If you want to enable project properties feature, please set the following
