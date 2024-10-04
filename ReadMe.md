@@ -18,7 +18,7 @@ If you want to enable project properties feature, please set the following
 options.
 
 ```
-<MileProjectPortableEnableProjectProperties>true</MileProjectPortableEnableProjectProperties>
+<MileProjectEnableProjectProperties>true</MileProjectEnableProjectProperties>
 <MileProjectCompanyName>TODO: Company Name</MileProjectCompanyName>
 <MileProjectFileDescription>TODO: File Description</MileProjectFileDescription>
 <MileProjectInternalName>$(TargetName)</MileProjectInternalName>

@@ -12,7 +12,7 @@
   <PropertyGroup>
     <ForceImportAfterCppProps>$(MileProjectPortableBackupedForceImportAfterCppProps)</ForceImportAfterCppProps>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(MileProjectPortableEnableProjectProperties)' == 'true'">
+  <PropertyGroup Condition="'$(MileProjectEnableProjectProperties)' == 'true'">
     <MileProjectCompanyName Condition="'$(MileProjectCompanyName)' == ''">TODO: Company Name</MileProjectCompanyName>
     <MileProjectFileDescription Condition="'$(MileProjectFileDescription)' == ''">TODO: File Description</MileProjectFileDescription>
     <MileProjectInternalName Condition="'$(MileProjectInternalName)' == ''">$(TargetName)</MileProjectInternalName>
@@ -26,7 +26,7 @@
     <MileProjectPreprocessorDefinitions>MILE_PROJECT_VERSION_REVISION=$([System.Version]::Parse('$(MileProjectVersion)').Revision);$(MileProjectPreprocessorDefinitions)</MileProjectPreprocessorDefinitions>
     <MileProjectPreprocessorDefinitions Condition="'$(MileProjectVersionTag)' != ''">MILE_PROJECT_VERSION_TAG=$(MileProjectVersionTag);$(MileProjectPreprocessorDefinitions)</MileProjectPreprocessorDefinitions>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="('$(MileProjectPortableEnableProjectProperties)' == 'true') And ('$(ConfigurationType)' != 'StaticLibrary')">
+  <ItemDefinitionGroup Condition="('$(MileProjectEnableProjectProperties)' == 'true') And ('$(ConfigurationType)' != 'StaticLibrary')">
     <ResourceCompile>
       <PreprocessorDefinitions>_MILE_PROJECT_COMPANY_NAME=$(MileProjectCompanyName);%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions>_MILE_PROJECT_FILE_DESCRIPTION=$(MileProjectFileDescription);%(PreprocessorDefinitions)</PreprocessorDefinitions>

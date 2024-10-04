@@ -11,7 +11,7 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Target Name="MileProjectPortableBuildResources" BeforeTargets="BeforeResourceCompile">
     <ItemGroup Condition="('$(ConfigurationType)' != 'StaticLibrary') And ('$(BuildingForX)' != 'true')">
-      <ResourceCompile Condition="'$(MileProjectPortableEnableProjectProperties)' == 'true'" Include="$(MSBuildThisFileDirectory)Mile.Project.Version.rc" />
+      <ResourceCompile Condition="'$(MileProjectEnableProjectProperties)' == 'true'" Include="$(MSBuildThisFileDirectory)Mile.Project.Version.rc" />
     </ItemGroup>
   </Target>
 </Project>
