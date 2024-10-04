@@ -30,6 +30,8 @@
     <file src="Mile.Project.Version.h" target="build\native" />
     <file src="Mile.Project.Version.rc" target="build\native" />
 
+    <file src="Mile.Project.Manifest.rc" target="build\native" />
+
     <file src="ReadMe.md" target="." />
     <file src="License.md" target="." />
     <file src="ReleaseNotes.md" target="." />
