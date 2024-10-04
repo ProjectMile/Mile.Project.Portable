@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
   PROJECT:   Mouri Internal Library Essentials
   FILE:      Mile.Project.Portable.AfterCpp.props
@@ -12,6 +12,11 @@
   <PropertyGroup>
     <ForceImportAfterCppProps>$(MileProjectPortableBackupedForceImportAfterCppProps)</ForceImportAfterCppProps>
   </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(MSBuildThisFileDirectory);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
   <PropertyGroup Condition="'$(MileProjectEnableProjectProperties)' == 'true'">
     <MileProjectCompanyName Condition="'$(MileProjectCompanyName)' == ''">TODO: Company Name</MileProjectCompanyName>
     <MileProjectFileDescription Condition="'$(MileProjectFileDescription)' == ''">TODO: File Description</MileProjectFileDescription>
@@ -27,7 +32,11 @@
     <MileProjectPreprocessorDefinitions Condition="'$(MileProjectVersionTag)' != ''">MILE_PROJECT_VERSION_TAG=$(MileProjectVersionTag);$(MileProjectPreprocessorDefinitions)</MileProjectPreprocessorDefinitions>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="('$(MileProjectEnableProjectProperties)' == 'true') And ('$(ConfigurationType)' != 'StaticLibrary')">
+    <ClCompile>
+      <PreprocessorDefinitions>$(MileProjectPreprocessorDefinitions);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
     <ResourceCompile>
+      <PreprocessorDefinitions>$(MileProjectPreprocessorDefinitions);%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions>_MILE_PROJECT_COMPANY_NAME=$(MileProjectCompanyName);%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions>_MILE_PROJECT_FILE_DESCRIPTION=$(MileProjectFileDescription);%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions>_MILE_PROJECT_INTERNAL_NAME=$(MileProjectInternalName);%(PreprocessorDefinitions)</PreprocessorDefinitions>
