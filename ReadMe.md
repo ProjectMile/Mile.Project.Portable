@@ -28,3 +28,9 @@ options.
 <MileProjectVersion>1.0.0.1</MileProjectVersion>
 <MileProjectVersionTag>Preview 1</MileProjectVersionTag>
 ```
+
+If you want to specify the embed manifest file, please set the following option.
+
+```
+<MileProjectEmbedManifestSourceFile>C:\Folder\Manifest.manifest</MileProjectEmbedManifestSourceFile>
+```

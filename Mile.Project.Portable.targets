@@ -12,6 +12,7 @@
   <Target Name="MileProjectPortableBuildResources" BeforeTargets="BeforeResourceCompile">
     <ItemGroup Condition="('$(ConfigurationType)' != 'StaticLibrary') And ('$(BuildingForX)' != 'true')">
       <ResourceCompile Condition="'$(MileProjectEnableProjectProperties)' == 'true'" Include="$(MSBuildThisFileDirectory)Mile.Project.Version.rc" />
+      <ResourceCompile Condition="'$(MileProjectEmbedManifestSourceFile)' != ''" Include="$(MSBuildThisFileDirectory)Mile.Project.Manifest.rc" />
     </ItemGroup>
   </Target>
 </Project>
