@@ -4,3 +4,5 @@
 
 - Initial release.
 - Provide NuGet package.
+- Introduce project properties options.
+- Introduce embed manifest file option.
