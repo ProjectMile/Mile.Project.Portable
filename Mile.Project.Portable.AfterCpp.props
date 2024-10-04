@@ -12,4 +12,28 @@
   <PropertyGroup>
     <ForceImportAfterCppProps>$(MileProjectPortableBackupedForceImportAfterCppProps)</ForceImportAfterCppProps>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(MileProjectPortableEnableProjectProperties)' == 'true'">
+    <MileProjectCompanyName Condition="'$(MileProjectCompanyName)' == ''">TODO: Company Name</MileProjectCompanyName>
+    <MileProjectFileDescription Condition="'$(MileProjectFileDescription)' == ''">TODO: File Description</MileProjectFileDescription>
+    <MileProjectInternalName Condition="'$(MileProjectInternalName)' == ''">$(TargetName)</MileProjectInternalName>
+    <MileProjectLegalCopyright Condition="'$(MileProjectLegalCopyright)' == ''">© TODO: Company Name. All rights reserved.</MileProjectLegalCopyright>
+    <MileProjectOriginalFilename Condition="'$(MileProjectOriginalFilename)' == ''">$(TargetName)$(TargetExt)</MileProjectOriginalFilename>
+    <MileProjectProductName Condition="'$(MileProjectProductName)' == ''">$(TargetName)</MileProjectProductName>
+    <MileProjectVersion Condition="'$(MileProjectVersion)' == ''">1.0.0.1</MileProjectVersion>
+    <MileProjectPreprocessorDefinitions>MILE_PROJECT_VERSION_MAJOR=$([System.Version]::Parse('$(MileProjectVersion)').Major);$(MileProjectPreprocessorDefinitions)</MileProjectPreprocessorDefinitions>
+    <MileProjectPreprocessorDefinitions>MILE_PROJECT_VERSION_MINOR=$([System.Version]::Parse('$(MileProjectVersion)').Minor);$(MileProjectPreprocessorDefinitions)</MileProjectPreprocessorDefinitions>
+    <MileProjectPreprocessorDefinitions>MILE_PROJECT_VERSION_BUILD=$([System.Version]::Parse('$(MileProjectVersion)').Build);$(MileProjectPreprocessorDefinitions)</MileProjectPreprocessorDefinitions>
+    <MileProjectPreprocessorDefinitions>MILE_PROJECT_VERSION_REVISION=$([System.Version]::Parse('$(MileProjectVersion)').Revision);$(MileProjectPreprocessorDefinitions)</MileProjectPreprocessorDefinitions>
+    <MileProjectPreprocessorDefinitions Condition="'$(MileProjectVersionTag)' != ''">MILE_PROJECT_VERSION_TAG=$(MileProjectVersionTag);$(MileProjectPreprocessorDefinitions)</MileProjectPreprocessorDefinitions>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="('$(MileProjectPortableEnableProjectProperties)' == 'true') And ('$(ConfigurationType)' != 'StaticLibrary')">
+    <ResourceCompile>
+      <PreprocessorDefinitions>_MILE_PROJECT_COMPANY_NAME=$(MileProjectCompanyName);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_MILE_PROJECT_FILE_DESCRIPTION=$(MileProjectFileDescription);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_MILE_PROJECT_INTERNAL_NAME=$(MileProjectInternalName);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_MILE_PROJECT_LEGAL_COPYRIGHT=$(MileProjectLegalCopyright);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_MILE_PROJECT_ORIGINAL_FILENAME=$(MileProjectOriginalFilename);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_MILE_PROJECT_PRODUCT_NAME=$(MileProjectProductName);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
 </Project>
