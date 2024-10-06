@@ -35,24 +35,8 @@
     <ClCompile>
       <PreprocessorDefinitions>$(MileProjectPreprocessorDefinitions);%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
-    <ResourceCompile>
-      <PreprocessorDefinitions>$(MileProjectPreprocessorDefinitions);%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <PreprocessorDefinitions>_MILE_PROJECT_COMPANY_NAME=$(MileProjectCompanyName);%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <PreprocessorDefinitions>_MILE_PROJECT_FILE_DESCRIPTION=$(MileProjectFileDescription);%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <PreprocessorDefinitions>_MILE_PROJECT_INTERNAL_NAME=$(MileProjectInternalName);%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <PreprocessorDefinitions>_MILE_PROJECT_LEGAL_COPYRIGHT=$(MileProjectLegalCopyright);%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <PreprocessorDefinitions>_MILE_PROJECT_ORIGINAL_FILENAME=$(MileProjectOriginalFilename);%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <PreprocessorDefinitions>_MILE_PROJECT_PRODUCT_NAME=$(MileProjectProductName);%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ResourceCompile>
   </ItemDefinitionGroup>
   <PropertyGroup Condition="'$(MileProjectEmbedManifestSourceFile)' != ''">
     <GenerateManifest>false</GenerateManifest>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="('$(MileProjectEmbedManifestSourceFile)' != '') And ('$(ConfigurationType)' != 'StaticLibrary')">
-    <ResourceCompile>
-      <PreprocessorDefinitions Condition="'$(ConfigurationType)' != 'DynamicLibrary'">_MILE_PROJECT_MANIFEST_ID=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <PreprocessorDefinitions Condition="'$(ConfigurationType)' == 'DynamicLibrary'">_MILE_PROJECT_MANIFEST_ID=2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <PreprocessorDefinitions>_MILE_PROJECT_MANIFEST_FILE=$([System.String]::Copy('$(MileProjectEmbedManifestSourceFile)').Replace('\','\\'));%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ResourceCompile>
-  </ItemDefinitionGroup>
 </Project>

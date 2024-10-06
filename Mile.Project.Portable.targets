@@ -11,8 +11,24 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Target Name="MileProjectPortableBuildResources" BeforeTargets="BeforeResourceCompile">
     <ItemGroup Condition="('$(ConfigurationType)' != 'StaticLibrary') And ('$(BuildingForX)' != 'true')">
-      <ResourceCompile Condition="'$(MileProjectEnableProjectProperties)' == 'true'" Include="$(MSBuildThisFileDirectory)Mile.Project.Version.rc" />
-      <ResourceCompile Condition="'$(MileProjectEmbedManifestSourceFile)' != ''" Include="$(MSBuildThisFileDirectory)Mile.Project.Manifest.rc" />
+      <ResourceCompile
+        Condition="'$(MileProjectEnableProjectProperties)' == 'true'"
+        Include="$(MSBuildThisFileDirectory)Mile.Project.Version.rc">
+        <PreprocessorDefinitions>$(MileProjectPreprocessorDefinitions);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+        <PreprocessorDefinitions>_MILE_PROJECT_COMPANY_NAME=$(MileProjectCompanyName);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+        <PreprocessorDefinitions>_MILE_PROJECT_FILE_DESCRIPTION=$(MileProjectFileDescription);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+        <PreprocessorDefinitions>_MILE_PROJECT_INTERNAL_NAME=$(MileProjectInternalName);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+        <PreprocessorDefinitions>_MILE_PROJECT_LEGAL_COPYRIGHT=$(MileProjectLegalCopyright);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+        <PreprocessorDefinitions>_MILE_PROJECT_ORIGINAL_FILENAME=$(MileProjectOriginalFilename);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+        <PreprocessorDefinitions>_MILE_PROJECT_PRODUCT_NAME=$(MileProjectProductName);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      </ResourceCompile>
+      <ResourceCompile
+        Condition="'$(MileProjectEmbedManifestSourceFile)' != ''"
+        Include="$(MSBuildThisFileDirectory)Mile.Project.Manifest.rc">
+        <PreprocessorDefinitions Condition="'$(ConfigurationType)' != 'DynamicLibrary'">_MILE_PROJECT_MANIFEST_ID=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+        <PreprocessorDefinitions Condition="'$(ConfigurationType)' == 'DynamicLibrary'">_MILE_PROJECT_MANIFEST_ID=2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+        <PreprocessorDefinitions>_MILE_PROJECT_MANIFEST_FILE=$([System.String]::Copy('$(MileProjectEmbedManifestSourceFile)').Replace('\','\\'));%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      </ResourceCompile>
     </ItemGroup>
   </Target>
 </Project>
