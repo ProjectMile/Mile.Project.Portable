@@ -9,7 +9,35 @@
   MAINTAINER: MouriNaruto (Kenji.Mouri@outlook.com)
 -->
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Target Name="MileProjectPortableBuildResources" BeforeTargets="BeforeResourceCompile">
+  <PropertyGroup Condition="'$(MileProjectDisableAllFeatures)' == 'true'">
+    <MileProjectEnableProjectProperties>false</MileProjectEnableProjectProperties>
+    <MileProjectEmbedManifestSourceFile></MileProjectEmbedManifestSourceFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(MileProjectEnableProjectProperties)' == 'true'">
+    <MileProjectCompanyName Condition="'$(MileProjectCompanyName)' == ''">TODO: Company Name</MileProjectCompanyName>
+    <MileProjectFileDescription Condition="'$(MileProjectFileDescription)' == ''">TODO: File Description</MileProjectFileDescription>
+    <MileProjectInternalName Condition="'$(MileProjectInternalName)' == ''">$(TargetName)</MileProjectInternalName>
+    <MileProjectLegalCopyright Condition="'$(MileProjectLegalCopyright)' == ''">© TODO: Company Name. All rights reserved.</MileProjectLegalCopyright>
+    <MileProjectOriginalFilename Condition="'$(MileProjectOriginalFilename)' == ''">$(TargetName)$(TargetExt)</MileProjectOriginalFilename>
+    <MileProjectProductName Condition="'$(MileProjectProductName)' == ''">$(TargetName)</MileProjectProductName>
+    <MileProjectVersion Condition="'$(MileProjectVersion)' == ''">1.0.0.1</MileProjectVersion>
+    <MileProjectPreprocessorDefinitions>MILE_PROJECT_VERSION_MAJOR=$([System.Version]::Parse('$(MileProjectVersion)').Major);$(MileProjectPreprocessorDefinitions)</MileProjectPreprocessorDefinitions>
+    <MileProjectPreprocessorDefinitions>MILE_PROJECT_VERSION_MINOR=$([System.Version]::Parse('$(MileProjectVersion)').Minor);$(MileProjectPreprocessorDefinitions)</MileProjectPreprocessorDefinitions>
+    <MileProjectPreprocessorDefinitions>MILE_PROJECT_VERSION_BUILD=$([System.Version]::Parse('$(MileProjectVersion)').Build);$(MileProjectPreprocessorDefinitions)</MileProjectPreprocessorDefinitions>
+    <MileProjectPreprocessorDefinitions>MILE_PROJECT_VERSION_REVISION=$([System.Version]::Parse('$(MileProjectVersion)').Revision);$(MileProjectPreprocessorDefinitions)</MileProjectPreprocessorDefinitions>
+    <MileProjectPreprocessorDefinitions Condition="'$(MileProjectVersionTag)' != ''">MILE_PROJECT_VERSION_TAG=$(MileProjectVersionTag);$(MileProjectPreprocessorDefinitions)</MileProjectPreprocessorDefinitions>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(MileProjectEmbedManifestSourceFile)' != ''">
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <Target Condition="'$(MileProjectDisableAllFeatures)' != 'true'" Name="MileProjectPortableBuildSource" BeforeTargets="ClCompile">
+    <ItemGroup>
+      <ClCompile>
+        <PreprocessorDefinitions>$(MileProjectPreprocessorDefinitions);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      </ClCompile>
+    </ItemGroup>
+  </Target>
+  <Target Condition="'$(MileProjectDisableAllFeatures)' != 'true'" Name="MileProjectPortableBuildResources" BeforeTargets="BeforeResourceCompile">
     <ItemGroup Condition="('$(ConfigurationType)' != 'StaticLibrary') And ('$(BuildingForX)' != 'true')">
       <ResourceCompile
         Condition="'$(MileProjectEnableProjectProperties)' == 'true'"
