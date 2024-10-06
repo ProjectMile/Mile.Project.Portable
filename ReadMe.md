@@ -1,5 +1,7 @@
 ﻿# Mile.Project.Portable
 
+[![NuGet Package](https://img.shields.io/nuget/vpre/Mile.Project.Portable)](https://www.nuget.org/packages/Mile.Project.Portable)
+
 Portable parts of configurations for simplifying Visual Studio (MSBuild)
 projects configurations.
 
